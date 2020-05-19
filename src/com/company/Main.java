@@ -18,16 +18,16 @@ public class Main {
             System.out.println();
         }
 
-        char player = 'O';
+        char player = 'X';
 
 
         int f = 0;
         while (a && f != 9) {
 
-            System.out.println("Игрок номер " + ((player>>4)-3) + " введите номер ячейки по горизонтали, куда хотите поставить свою фигуру 0..2");
+            System.out.println("Игрок номер " + ((player % 2)+1) + " введите номер ячейки по горизонтали, куда хотите поставить свою фигуру 0..2");
             Scanner scanner = new Scanner(System.in);
             x = scanner.nextInt();
-            System.out.println("Игрок номер " + ((player>>4)-3) + " введите номер ячейки по вертикали, куда хотите поставить свою фигуру 0..2");
+            System.out.println("Игрок номер " + ((player % 2)+1) + " введите номер ячейки по вертикали, куда хотите поставить свою фигуру 0..2");
             Scanner scanner1 = new Scanner(System.in);
             y = scanner1.nextInt();
             if (x>=0 && x<=2 && y>=0 && y<=2) {
@@ -50,14 +50,14 @@ public class Main {
                                     (array[0][1] != 95 && array[0][1] == array[1][1] && array[1][1] == array[2][1]) ||
                                     (array[0][2] != 95 && array[0][2] == array[1][2] && array[1][2] == array[2][2]) ||
                                     (array[2][0] != 95 && array[2][0] == array[1][1] && array[1][1] == array[0][2])) {
-                                System.out.println("Игрок номер " + ((player >> 4) - 3) + " выиграл");
+                                System.out.println("Игрок номер " + ((player % 2) +1) + " выиграл");
                                 a = false;
                                 break;
                             } else if (f != 9) {
-                                if (player == 'O') {
-                                    player = 'X';
-                                } else {
+                                if (player == 'X') {
                                     player = 'O';
+                                } else {
+                                    player = 'X';
                                 }
                             } else {
                                 System.out.println("Ничья. Игра окончена");
